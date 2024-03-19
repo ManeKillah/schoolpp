@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: ./schoolpp
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+
+  api:
+    build:
+      context: ./schoolpp_api
+    ports:
+      - "3030:3030"
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: tucontraseña
+      MYSQL_DATABASE: schoolpp-db
+    ports:
+      - "3306:3306"

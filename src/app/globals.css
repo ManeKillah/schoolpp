@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 270 2% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 270 2% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 270 2% 20%;
+    --primary: 270 100% 20%;
+    --primary-foreground: 210 40% 98%;
+    --success: 125 91% 54%;
+    --success-foreground: 0 0% 40%;
+    --warning: 39 100% 47%;
+    --warning-foreground: 210 40% 98%;
+    --secondary: 17 100% 50%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 0 0% 39%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 0 0% 39%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 100% 65%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 0 0% 61%;
+    --input: 0 0% 61%;
+    --ring: 270 100% 20%;
+    --radius: 1rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  .section {
+    border-bottom: 0.5px solid #0f0c0c;
+    padding-bottom: 20px; /* Espacio entre la línea y el contenido */
+  }
+  
+
+  h1,
+  h2,
+  h3 {
+    @apply font-bold;
+  }
+  h4,
+  h5 {
+    @apply font-semibold;
+  }
+  h1 {
+    @apply text-3xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3,
+  h4,
+  h5 {
+    @apply text-xl;
+  }
+}
+
+@layer base {
+}
+
+@layer components {
+
+  select {
+    appearance: none; /* Elimina los estilos nativos del sistema operativo */
+    padding: 0.5rem 1rem; /* Ajusta el padding según sea necesario */
+    font-size: 1rem; /* Tamaño de fuente */
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 0.25rem; /* Bordes redondeados */
+    background-color: #fff; /* Color de fondo */
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    max-width: 100%; /* Ancho máximo */
+  }
+  
+  /* Estilo al pasar el ratón por encima */
+  select:hover {
+    border-color: #999; /* Cambia el color del borde al pasar el ratón por encima */
+  }
+  
+  
+  /* Estilo al enfocar */
+  select:focus {
+    outline: none; /* Elimina el contorno predeterminado */
+    border-color: #007bff; /* Cambia el color del borde al enfocar */
+  }
+  
+  /* Estilo para opciones desactivadas */
+  select option:disabled {
+    color: #999; /* Color de texto gris para opciones desactivadas */
+  }
+  /* Layout */
+  .dashboard {
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    display: grid;
+    grid-template-areas: "header header" "aside main" "aside footer";
+    grid-template-columns: 256px 1fr;
+    grid-template-rows: 64px 1fr auto;
+    gap: 1rem;
+    @apply bg-background;
+  }
+
+  .dashboard > header {
+    grid-area: header;
+  }
+
+  .dashboard > aside {
+    grid-area: aside;
+  }
+
+  .dashboard.sidebar-hidden {
+    grid-template-columns: 0px 1fr;
+  }
+  .dashboard.sidebar-hidden > aside {
+    display: none;
+  }
+  .dashboard,
+  .dashboard.sidebar-hidden {
+    transition: grid-template-columns 0.3s ease-in-out;
+  }
+
+  .dashboard > .main {
+    grid-area: main;
+    overflow: hidden;
+    @apply px-5;
+  }
+
+  .dashboard footer {
+    grid-area: footer;
+    @apply px-6 py-3;
+  }
+
+  aside ul > li {
+    @apply flex gap-2 items-center;
+  }
+}
+.Todos,
+.Activos,
+.Inactivos {
+  background: white;
+  color: #121b2e;
+  border: 1px solid #e7e9ed;
+  border-radius: 10px 0px 0px 10px;
+  --tw-space-x-reverse: 0 !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  font-size: 14px;
+}
+.Todos:hover,
+.Activos:hover,
+.Inactivos:hover {
+  background: rgb(245 245 245) !important;
+  border: 1px solid #d1d3d8 !important;
+}
+.Activos {
+  border-radius: 0px;
+}
+.Inactivos {
+  border-radius: 0px 10px 10px 0px;
+}
+.bg-primary {
+  background-color: white;
+  color: #344054 !important;
+  border: 2px solid #d0d5dd;
+  border-radius: 10px;
+  font-weight: 500;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.vtable {
+  border-radius: 20px;
+  border: 2px solid #d0d5dd;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.bcomplet {
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.bsq {
+  background: white;
+  border-radius: 10px;
+  border: 2px solid #cacaca;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
